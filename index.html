@@ -55,7 +55,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;color:var(--txt
   <div id="file"></div>
   <div id="tip"><span class="k">忍</span><span id="tiptxt"></span></div>
 
-  <div class="info" id="left">Carte · AKHNRP_MAP<b id="">—</b><br>Mode de jeu · <b id="gm">—</b></div>
+  <div class="info" id="left">Carte · <b id="map">—</b><br>Mode de jeu · <b id="gm">—</b></div>
   <div class="info" id="right">Slots · <b id="slots">—</b><br><b id="srv">AKH NRP</b></div>
 </div>
 
@@ -88,10 +88,10 @@ function render(){
 (function loop(){ shown += (target-shown)*0.06; if(Math.abs(target-shown)<0.0005) shown=target; if(total && needed>0) render(); requestAnimationFrame(loop); })();
 
 // ---- API appelée par Garry’s Mod ----
-function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode){
+function GameDetails(servername, serverurl, maxplayers, steamid, gamemode){
   gmod = true;
   if(servername) $('srv').textContent = servername;
-  $('map').textContent = mapname || '—';
+  $('map').textContent = AKHNRP_MAP || '—';
   $('slots').textContent = maxplayers || '—';
   $('gm').textContent = gamemode || '—';
 }
